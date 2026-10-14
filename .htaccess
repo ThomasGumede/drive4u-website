@@ -1,0 +1,24 @@
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(config|vendor)(/|$) - [F,L,NC]
+  RewriteRule ^(composer\.(json|lock)|README\.md|\.gitignore)$ - [F,L,NC]
+</IfModule>
+<FilesMatch "^(mail\.php|mail\.example\.php|composer\.(json|lock)|README\.md|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>

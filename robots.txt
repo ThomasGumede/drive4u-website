@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /config/
+Sitemap: https://www.drive4u.co.za/sitemap.xml

@@ -1,0 +1,9 @@
+{
+  "name": "drive4u/website",
+  "description": "Drive4U website contact form powered by PHPMailer",
+  "type": "project",
+  "require": {
+    "php": "^8.1",
+    "phpmailer/phpmailer": "^6.10"
+  }
+}
